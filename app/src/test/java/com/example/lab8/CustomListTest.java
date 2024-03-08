@@ -17,10 +17,11 @@ public class CustomListTest {
 
     /**
      * create a mocklist for my citylist
-     * @return
+     * @return the mocklist
      */
     public CustomList MockCityList(){
-        list = new CustomList(null,new ArrayList<>()); return list;
+        list = new CustomList(null,new ArrayList<>());
+        return list;
     }
 
     /**
@@ -38,11 +39,11 @@ public class CustomListTest {
     }
 
     @Test
-    void testHasCity() {
+    public void testHasCity() {
         list = MockCityList();
-        City city = new City("Vancouver", "British Columbia");
-        list.add(city);
-        assertEquals(2, list.getCount());
+        City city = new City("Vancouver", "BC");
+        list.addCity(city);
+        assertEquals(1, list.getCount());
         assertTrue(list.hasCity(city));
         City city1 = new City("Calgary", "Alberta");
         assertFalse(list.hasCity(city1));
